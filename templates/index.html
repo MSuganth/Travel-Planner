@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyWorld - AI Travel Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">EASYWORLD</a>
+            <div class="nav-links">
+                <button class="nav-btn login-btn" onclick="openAuthModal('login')">Login</button>
+                <button class="nav-btn signup-btn" onclick="openAuthModal('signup')">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+            <h1 class="hero-title">Discover Your Next <span class="highlight">Adventure</span></h1>
+            <p class="hero-subtitle">Your personalized AI travel planner. Smart itineraries, hidden gems, and unforgettable experiences curated just for you.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="openAuthModal('login')">Try AI Planner <i class="fas fa-arrow-right"></i></button>
+                <a href="#destinations" class="btn-secondary">Explore</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Destinations Section -->
+    <main>
+        <section id="destinations" class="destinations">
+            <div class="section-header reveal">
+                <h2>Top Destinations</h2>
+                <p>Explore the most breathtaking places around the globe, handpicked for your next getaway.</p>
+            </div>
+            
+            <div class="destinations-slider-container">
+                <button class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                <div class="destinations-grid slider-track">
+                <!-- Paris -->
+                <div class="destination-card reveal-up">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80" alt="Paris" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Paris, France</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-landmark"></i> Architecture</span>
+                            <span><i class="fas fa-utensils"></i> Cuisine</span>
+                        </div>
+                        <p>Renowned for its iconic landmarks like the Eiffel Tower and Louvre Museum, offering a blend of historical grandeur and modern appeal.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Bali -->
+                <div class="destination-card reveal-up" style="transition-delay: 100ms;">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Bali, Indonesia</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-water"></i> Beaches</span>
+                            <span><i class="fas fa-om"></i> Spiritual</span>
+                        </div>
+                        <p>The "Island of Gods," known for its stunning natural beauty, rich ancient culture, and deeply spiritual atmosphere.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Maldives -->
+                <div class="destination-card reveal-up" style="transition-delay: 200ms;">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>The Maldives</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-swimming-pool"></i> Luxury</span>
+                            <span><i class="fas fa-fish"></i> Marine Life</span>
+                        </div>
+                        <p>Famous for its crystal-clear turquoise waters, pristine white-sand beaches, and exclusive overwater luxury resorts.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- New York -->
+                <div class="destination-card reveal-up">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" alt="New York" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>New York City</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-city"></i> City Life</span>
+                            <span><i class="fas fa-theater-masks"></i> Culture</span>
+                        </div>
+                        <p>A global hub drawing millions annually with iconic landmarks, vibrant neighborhoods, world-class museums, and Broadway.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Bora Bora -->
+                <div class="destination-card reveal-up" style="transition-delay: 100ms;">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80" alt="Bora Bora" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Bora Bora</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-umbrella-beach"></i> Tropics</span>
+                            <span><i class="fas fa-ship"></i> Adventure</span>
+                        </div>
+                        <p>A tropical paradise offering spectacular turquoise lagoons, coral reefs, and thrilling excursions like shark feeding and 4x4 safaris.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Kyoto -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=800&q=80" alt="Kyoto" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Kyoto, Japan</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-torii-gate"></i> Temples</span>
+                            <span><i class="fas fa-tree"></i> Nature</span>
+                        </div>
+                        <p>Step back in time through stunning ancient temples, serene bamboo forests, and traditional geisha districts.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Rome -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Rome" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Rome, Italy</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-monument"></i> History</span>
+                            <span><i class="fas fa-pizza-slice"></i> Cuisine</span>
+                        </div>
+                        <p>The Eternal City, where incredible monumental history like the Colosseum deeply weaves into modern romantic life.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Santorini -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80" alt="Santorini" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Santorini, Greece</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-sun"></i> Sunsets</span>
+                            <span><i class="fas fa-water"></i> Aegean</span>
+                        </div>
+                        <p>Famous worldwide for its dazzling cliffside white homes, incredible blue domes, and breathtaking caldera sunsets.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Machu Picchu -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=800&q=80" alt="Machu Picchu" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Machu Picchu, Peru</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-mountain"></i> Hiking</span>
+                            <span><i class="fas fa-rupee-sign"></i> Ancient</span>
+                        </div>
+                        <p>Explore the jaw-dropping Lost City of the Incas perched beautifully amid towering peaks of the Andes Mountains.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Dubai -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Dubai, UAE</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-building"></i> Modernity</span>
+                            <span><i class="fas fa-shopping-bag"></i> Shopping</span>
+                        </div>
+                        <p>Experience the ultimate futuristic playground featuring the Burj Khalifa, massive malls, and absolute ultra-luxury.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Sydney -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" alt="Sydney" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Sydney, Australia</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-music"></i> Opera Harbor</span>
+                            <span><i class="fas fa-water"></i> Beaches</span>
+                        </div>
+                        <p>A dazzling harbor city seamlessly blending vibrant coastal lifestyle with iconic global architectural wonders.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Cape Town -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80" alt="Cape Town" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Cape Town, South Africa</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-mountain"></i> Table Mtn</span>
+                            <span><i class="fas fa-camera"></i> Scenic</span>
+                        </div>
+                        <p>Crowned by Table Mountain, a city boasting awe-inspiring coastal drives, penguin beaches, and robust global culture.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Swiss Alps -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=80" alt="Swiss Alps" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Swiss Alps, Switzerland</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-snowflake"></i> Snow</span>
+                            <span><i class="fas fa-hiking"></i> Alpine</span>
+                        </div>
+                        <p>Breathtaking alpine ranges providing world-class skiing resorts and summer treks among lush flower-filled valleys.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Reykjavik -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Reykjavik" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Reykjavik, Iceland</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-fire"></i> Geothermal</span>
+                            <span><i class="fas fa-star"></i> Aurora</span>
+                        </div>
+                        <p>Gateway to surreal landscapes featuring massive glaciers, erupting geysers, and potentially the Northern Lights.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Cairo -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=800&q=80" alt="Cairo" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Cairo, Egypt</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-pyramid"></i> Wonders</span>
+                            <span><i class="fas fa-map"></i> History</span>
+                        </div>
+                        <p>The historical heart of the desert, where life buzzes mere miles away from the oldest remaining ancient world wonder.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Rio de Janeiro -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=80" alt="Rio" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Rio de Janeiro, Brazil</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-drum"></i> Carnival</span>
+                            <span><i class="fas fa-umbrella-beach"></i> Tropics</span>
+                        </div>
+                        <p>A pulsating city of endless rhythm known for its spectacular Carnival festivals, exotic beaches, and the towering Christ Redeemer.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Banff -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80" alt="Banff" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Banff, Canada</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-tree"></i> Wilderness</span>
+                            <span><i class="fas fa-water"></i> Lakes</span>
+                        </div>
+                        <p>Pristine mountain resort towns nestled in untamed Canadian Rockies boasting glassy turquoise glacial lakes and wild bears.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- London -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="London" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>London, UK</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-chess-rook"></i> Royal</span>
+                            <span><i class="fas fa-subway"></i> Tube</span>
+                        </div>
+                        <p>The iconic Thames-side metropolis that deeply immerses you in regal history, legendary pubs, and grand museums.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Seoul -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80" alt="Seoul" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Seoul, South Korea</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-bolt"></i> Hi-Tech</span>
+                            <span><i class="fas fa-hamburger"></i> Street Food</span>
+                        </div>
+                        <p>A dazzling juxtaposition where soaring skyscrapers and hyper-modern tech meet ancient palaces and bustling street food markets.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Phuket -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80" alt="Phuket" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Phuket, Thailand</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-tree"></i> Jungles</span>
+                            <span><i class="fas fa-cocktail"></i> Nightlife</span>
+                        </div>
+                        <p>Thailand's biggest island packed full of lush rainforests, spicy incredible local eats, and stunning white sandy coves.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Grand Canyon -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=800&q=80" alt="Grand Canyon" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Grand Canyon, USA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-camera"></i> Vistas</span>
+                            <span><i class="fas fa-hiking"></i> Adventure</span>
+                        </div>
+                        <p>Nature's ultimate masterpiece, showcasing immense, breathtakingly colorful rock bands stretching seemingly forever.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Barcelona -->
+                <div class="destination-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80" alt="Barcelona" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Barcelona, Spain</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span><i class="fas fa-palette"></i> Art</span>
+                            <span><i class="fas fa-wine-glass"></i> Tapas</span>
+                        </div>
+                        <p>A mesmerizing Spanish city renowned for spectacular surrealist Gaudi architecture and gorgeous Mediterranean coastlines.</p>
+                        <button class="card-link" onclick="openAuthModal('login')">Plan Trip <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                </div>
+                <button class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>EASYWORLD</h3>
+                <p>Your personal AI travel assistant turning dreams into itineraries.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="link-group">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="link-group">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 EasyWorld. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="close-modal" aria-label="Close" onclick="closeAuthModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Welcome Back</h2>
+                    <p id="modal-subtitle">Log in to your account to continue planning.</p>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="modal-login-form" class="auth-form active-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <span class="btn-text">Login <i class="fas fa-arrow-right"></i></span>
+                    </button>
+                    <p class="auth-switch">Don't have an account? <span onclick="switchAuthMode('signup')">Sign Up</span></p>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="modal-signup-form" class="auth-form hidden-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signup-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signup-password" placeholder="Create Password" required minlength="4">
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <span class="btn-text">Create Account <i class="fas fa-user-plus"></i></span>
+                    </button>
+                    <p class="auth-switch">Already have an account? <span onclick="switchAuthMode('login')">Sign In</span></p>
+                </form>
+                
+                <div id="auth-message" class="auth-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/index.js"></script>
+</body>
+</html>

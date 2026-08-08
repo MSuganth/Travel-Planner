@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>EASYWORLD</h3>
+        </div>
+        
+        <div id="chat-history" class="chat-history"></div>
+        <div class="sidebar-footer">
+            <div class="action-buttons-row" style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
+                <button id="clear-history-button" class="clear-history-button" style="flex: 1; width: auto; padding: 10px 5px;">Clear History</button>
+                <button id="new-chat-button" class="new-chat-button" style="flex: 1; width: auto; padding: 10px 5px;">New Chat</button>
+            </div>
+            
+            <div class="user-auth-row" style="display: flex; align-items: stretch; justify-content: space-between; width: 100%; margin-top: 10px; box-sizing: border-box; gap: 10px;">
+                <div class="user-info" style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 15px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); flex: 1;">
+                    <i class="fas fa-user-circle" style="font-size: 32px; color: #a3bffa;"></i>
+                    <span id="usernamecorner" style="font-size: 15px; font-weight: 600; color: white;">Guest</span>
+                </div>
+                <div class="sidebar-settings" style="position: relative; display: flex;">
+                    <div id="settings-toggle" style="display: flex; align-items: center; justify-content: center; color: white; padding: 0 15px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px);" onclick="const d = document.getElementById('settings-dropdown'); d.style.display = d.style.display === 'flex' ? 'none' : 'flex'; event.stopPropagation();" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'">
+                        <i class="fas fa-cog" style="font-size: 18px;"></i>
+                    </div>
+                    <div id="settings-dropdown" style="display: none; position: absolute; bottom: 120%; right: 0; margin-bottom: 5px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; width: 160px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 100; flex-direction: column; overflow: hidden;">
+                        <div style="padding: 12px 15px; color: #cbd5e1; font-size: 13px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#334155'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#cbd5e1'">
+                            <i class="fas fa-user"></i> Account Profile
+                        </div>
+                        <div style="padding: 12px 15px; color: #f87171; font-size: 13px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='rgba(239, 68, 68, 0.1)'" onmouseout="this.style.background='transparent'" onclick="window.location.href='index.html'">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('click', function(event) {
+                    const dropdown = document.getElementById('settings-dropdown');
+                    const toggle = document.getElementById('settings-toggle');
+                    if (dropdown && toggle && dropdown.style.display === 'flex' && !toggle.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            </script>
+            
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+
+        
+        <!-- AI Chat Interface -->
+        <div class="ai-chat-container">
+            <div class="chat-header" id="chat-header">
+                <h2>EasyWorld AI Travel Assistant</h2>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your travel question here...">
+                <button class="send-button" id="send-button">
+                <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Custom Modal for Actions (Rename/Delete) -->
+    <div id="custom-action-modal" class="action-modal">
+        <div class="action-modal-content">
+            <h3 id="action-modal-title">Action</h3>
+            <p id="action-modal-desc"></p>
+            <div id="action-modal-input-wrap" style="display: none; margin: 20px 0;">
+                <input type="text" id="action-modal-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; outline: none;">
+            </div>
+            <div class="action-modal-btns">
+                <button id="action-modal-cancel" class="modal-btn cancel">Cancel</button>
+                <button id="action-modal-confirm" class="modal-btn confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/dashboard.js"></script>
+</body>
+</html>
